@@ -1,0 +1,60 @@
+<!--
+Class Oracoes contêm os pedidos de oração visiveis para o usuário
+-->
+<ion-header class="app_header">
+
+  <ion-toolbar color="sky">
+    <ion-buttons left>
+      <button ion-button icon-only>
+        <ion-avatar>
+          <img src="{{user}}" class="user_img">
+        </ion-avatar>
+      </button>
+    </ion-buttons>
+    <ion-title>Orações</ion-title>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content class="oracoes-content">
+
+  <ion-grid *ngIf="noItem" class="noItem">
+    <img src="./assets/images/SemOracao.png"/>
+    <h1>Sem Orações!</h1>
+  </ion-grid>
+
+  <ion-item-group no-lines *ngFor="let grupo of (oracoes | async)">
+
+    <ion-card *ngFor="let oracao of (grupo.prays | toArray)">
+
+      <ion-card-header class="oracoes_heard" *ngIf="oracao.titulo">
+        <ion-item no-lines class="grupo_heard">
+          <ion-avatar item-start>
+            <img src="./assets/images/user.png">
+          </ion-avatar>
+          <h2>{{oracao.titulo}}</h2>
+          <p>{{grupo.nome}}</p>
+        </ion-item>
+      </ion-card-header>
+
+      <ion-card-content *ngIf="oracao.titulo" (click)="doClickCard(grupo.$key, grupo.prayuid, oracao.key, oracao.titulo )" class="oracoes_content">
+        <p>{{oracao.descricao}}</p>
+        <ion-row>
+          <ion-col>
+            <button ion-button icon-left clear small>
+              <ion-icon name="ios-heart-outline"></ion-icon>
+              <div>{{oracao.prays_count}} Orações</div>
+            </button>
+          </ion-col>
+          <!-- <ion-col>
+            <button ion-button icon-left clear small>
+              <ion-icon name="ios-text"></ion-icon>
+              <div>{{oracao.prays_count}} Comentario</div>
+            </button>
+          </ion-col> -->
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+
+  </ion-item-group>
+</ion-content>

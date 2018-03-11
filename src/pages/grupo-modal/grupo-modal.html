@@ -1,0 +1,79 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Novo Grupo</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+
+    <ion-item>
+      <ion-input type="text" placeholder="Nome" [(ngModel)]="grupo.nome">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-textarea type="text" placeholder="Nosso grupo orar por ..."
+        rows="20" cols="50" [(ngModel)]="grupo.descricao">
+      </ion-textarea>
+    </ion-item>
+
+    <ion-item>
+        <img src="{{grupo.imgPath}}" alt="" *ngIf="grupo.url == undefined"/>
+        <img src="{{grupo.url}}" alt="" *ngIf="grupo.url != undefined"/>
+        <button ion-button block color="dark" (click)="pickerCapa()">Escolher Capa</button>
+    </ion-item>
+
+    <ion-item>
+      <ion-label> Grupo privado</ion-label>
+      <ion-toggle color="energized" checked="false" [(ngModel)]="grupo.privado"></ion-toggle>
+    </ion-item>
+
+    <ion-item *ngIf = "!grupo.privado">
+      <ion-label> Local</ion-label>
+      <ion-select [(ngModel)]="grupo.localidade">
+        <ion-option value="AC">AC</ion-option>
+        <ion-option value="AL">AL</ion-option>
+        <ion-option value="AM">AM</ion-option>
+        <ion-option value="AP">AP</ion-option>
+        <ion-option value="BA">BA</ion-option>
+        <ion-option value="CE">CE</ion-option>
+        <ion-option value="DF">DF</ion-option>
+        <ion-option value="ES">ES</ion-option>
+        <ion-option value="GO">GO</ion-option>
+        <ion-option value="MA">MA</ion-option>
+        <ion-option value="MG">MG</ion-option>
+        <ion-option value="MS">MS</ion-option>
+        <ion-option value="MT">MT</ion-option>
+        <ion-option value="PA">PA</ion-option>
+        <ion-option value="PB">PB</ion-option>
+        <ion-option value="PE">PE</ion-option>
+        <ion-option value="PI">PI</ion-option>
+        <ion-option value="PR">PR</ion-option>
+        <ion-option value="RJ">RJ</ion-option>
+        <ion-option value="RN">RN</ion-option>
+        <ion-option value="RO">RO</ion-option>
+        <ion-option value="RR">RR</ion-option>
+        <ion-option value="RS">RS</ion-option>
+        <ion-option value="SC">SC</ion-option>
+        <ion-option value="SE">SE</ion-option>
+        <ion-option value="SP">SP</ion-option>
+        <ion-option value="TO">TO</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label> Modelo de Oração</ion-label>
+      <ion-select [(ngModel)]="grupo.modo">
+        <ion-option value="Todos por um">Todos por um</ion-option>
+        <ion-option value="Um por um">Um por um</ion-option>
+      </ion-select>
+    </ion-item>
+
+  </ion-list>
+
+  <button ion-button block (click)="saveModal()">Salvar</button>
+  <button ion-button block (click)="closeModal()">Cancelar</button>
+</ion-content>

@@ -1,0 +1,36 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Nova Oração</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list>
+
+    <ion-item>
+      <ion-label><ion-icon name="md-key" color="danger" *ngIf="pedido.publico"></ion-icon></ion-label>
+      <ion-input type="text" placeholder="Título" [(ngModel)]="pedido.titulo">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-textarea type="text" placeholder="Eu desejo..." class="input-peddes"
+        rows="20" cols="50" [(ngModel)]="pedido.descricao">
+      </ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Pedido secreto</ion-label>
+      <ion-toggle color="energized" [(ngModel)]="pedido.publico"></ion-toggle>
+    </ion-item>
+
+  </ion-list>
+
+  <button ion-button block (click)="closePedidoModal()">Fechar</button>
+  <button ion-button block (click)="savePedidoModal()">Salvar</button>
+
+</ion-content>

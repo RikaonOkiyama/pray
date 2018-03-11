@@ -1,0 +1,14 @@
+page-pedido-modal {
+
+    .input-peddes {
+        height: 150px;
+        width: 100%;
+        white-space: nowrap;
+        text-align: justify
+    }
+    .modal{
+        $modal-inset-min-width:200;
+        $modal-inset-min-height-small:250;
+        height: auto;
+    }
+}

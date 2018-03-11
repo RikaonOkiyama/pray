@@ -1,0 +1,36 @@
+page-grupos {
+    .card-grupo {
+        position: relative;
+        text-align: center;
+    }
+
+    .user_img{
+        margin-left: 16px;
+        border-radius: 50%;
+        width: 38px;
+        height: 38px;
+    }
+
+    .card-title {
+        position: absolute;
+        top: 36%;
+        font-size: 2em;
+        width: 100%;
+        font-weight: 700;
+        color: #fff;
+        text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5);
+    }
+
+    .card-subtitle {
+        font-size: 1em;
+        position: absolute;
+        top: 52%;
+        width: 100%;
+        color: #fff;
+    }
+
+    .noItem{
+        text-align: center;
+        color: darkgray;
+    }
+}

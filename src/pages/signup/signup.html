@@ -1,0 +1,28 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Novo aqui</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-list no-lines>
+
+    <ion-item>
+      <ion-label floating>email</ion-label>
+      <ion-input type="text" value="" [(ngModel)]="user.email" #email="ngModel" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Senha</ion-label>
+      <ion-input type="password" [(ngModel)]="user.password" #password="ngModel" required>></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+  <button ion-button block (click)="doRegister()">Entrar</button>
+
+</ion-content>

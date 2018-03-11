@@ -1,0 +1,65 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{grupo.nome}}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="openMenu($event)" *ngIf="adm">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card>
+    <img src="{{grupo.url}}">
+    <ion-card-content>
+      <p>
+        {{grupo.descricao}}
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-row>
+    <ion-col>
+      <h2>Participantes</h2>
+    </ion-col>
+    <ion-col  text-right>
+      <button ion-button clear icon-left *ngIf="adm" (click)="doSortear()">
+        <ion-icon name="ios-cube"></ion-icon>
+        <div>Sortear</div>
+      </button>
+    </ion-col>
+  </ion-row>
+
+  <ion-list no-lines>
+
+    <ion-item-sliding *ngFor="let participante of (participantes | async)">
+
+      <ion-item>
+        <ion-avatar *ngIf="participante.img == undefined" item-start>
+          <img src="./assets/images/user.png">
+        </ion-avatar>
+        <ion-avatar *ngIf="participante.img != undefined" item-start>
+          <img src="{{participante.img}}">
+        </ion-avatar>
+        <h2 *ngIf="participante.nome == undefined">Nome</h2>
+        <h2 *ngIf="participante.nome != undefined">{{participante.nome}}</h2>
+      </ion-item>
+
+      <ion-item-options side="right" *ngIf="adm">
+        <button ion-button outline color="redwhite" (click)="deletParticipante(grupo.key,participante.$key)">
+          <ion-icon name="trash"></ion-icon>
+          Excluir
+        </button>
+        <button ion-button outline color="primary"  (click)="doAdministrador(grupo.key,participante.$key)">
+          <ion-icon name="ios-bowtie-outline"></ion-icon>
+          Administrador
+        </button>
+      </ion-item-options>
+
+    </ion-item-sliding>
+  </ion-list>
+
+</ion-content>

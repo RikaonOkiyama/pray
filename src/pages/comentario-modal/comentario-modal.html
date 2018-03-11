@@ -1,0 +1,22 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Comentário</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list>
+    <ion-item>
+      <ion-textarea type="text" placeholder="Novo comentário..."
+        rows="20" cols="50" [(ngModel)]="comentario">
+      </ion-textarea>
+    </ion-item>
+  </ion-list>
+
+  <button ion-button block (click)="closeModal()">Fechar</button>
+  <button ion-button block (click)="saveModal()">Salvar</button>
+
+</ion-content>

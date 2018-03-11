@@ -1,0 +1,40 @@
+<ion-header no-border>
+
+  <ion-navbar color="sky" no-border>
+    <ion-buttons left>
+      <button ion-button icon-only>
+        <!--<ion-icon name="contact"></ion-icon>-->
+        <ion-avatar>
+          <img src="{{user}}" class="user_img">
+        </ion-avatar>
+      </button>
+    </ion-buttons>
+    <ion-title>Grupos</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+
+  <ion-grid *ngIf="noItem" class="noItem">
+    <img src="./assets/images/SemGrupo.png"/>
+    <h1>Sem Grupos!</h1>
+  </ion-grid>
+
+  <ion-card class="card-grupo" *ngFor="let grupo of (grupos | async)" (click)="doClickGrupos(grupo)" (press)="menuOptions($event, grupo)">
+    <img src= "{{grupo.url}}"/>
+    <div class="card-title">{{grupo.nome}}</div>
+    <div class="card-subtitle"> 12 Orações</div>
+  </ion-card>
+
+  <ion-fab bottom right #fab>
+    <button ion-fab>
+      <ion-icon name="arrow-dropup"></ion-icon>
+    </button>
+    <ion-fab-list side="top">
+      <button ion-fab (click)="createGrupo(fab)"><ion-icon name="ios-create-outline"></ion-icon></button>
+      <button ion-fab (click)="addGrupo(fab)"><ion-icon name="add"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
+
+</ion-content>

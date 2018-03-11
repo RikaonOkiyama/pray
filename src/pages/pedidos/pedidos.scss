@@ -1,0 +1,25 @@
+page-pedidos {
+    .pedidos-content{
+        //background: linear-gradient(10deg,  #e1e1e1, #d6ac62);
+    }
+
+    ion-card.card{
+        background: rgba(255, 255, 255, 0.8px);
+    }
+
+    .user_img{
+        margin-left: 16px;
+        border-radius: 50%;
+        height: 38px;
+        width: 38px;
+    }
+
+    .noItem{
+        text-align: center;
+        color: darkgray;
+    }
+
+    .card_comen{
+      //height: 500px;
+    }
+}

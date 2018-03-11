@@ -1,0 +1,33 @@
+page-oracoes {
+
+    .app_header{
+      background-image: url(../assets/images/backgroundII.png);
+    }
+    
+    .user_img{
+        margin-left: 16px;
+        border-radius: 50%;
+        height: 38px;
+        width: 38px;
+    }
+
+    .oracoes_heard{
+        color: darkgray;
+        background: rgba(255, 255, 255, 0px);
+    }
+
+    .grupo_heard{
+        color: darkslategrey;
+        font-family: 'Segoe Script';
+        background: rgba(255, 255, 255, 0px);
+    }
+
+    .oracoes-content{
+        //background:  #6A5D4D;
+    }
+
+    .noItem{
+        text-align: center;
+        color: darkgray;
+    }
+}

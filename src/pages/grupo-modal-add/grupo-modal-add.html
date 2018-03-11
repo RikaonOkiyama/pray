@@ -1,0 +1,22 @@
+<ion-header>
+
+  <ion-navbar color="sky">
+    <ion-title>Adicionar novo grupo</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <ion-searchbar (ionInput)="searchtAllGrupos($event)"></ion-searchbar>
+  <ion-list>
+    <ion-item *ngFor="let grupo of (grupos | async)" (click)="doAddGrupo(grupo)">
+      <ion-avatar item-start>
+        <img src="{{grupo.url}}">
+      </ion-avatar>
+      <h2>{{grupo.nome}}</h2>
+      <p>{{grupo.descricao}}</p>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

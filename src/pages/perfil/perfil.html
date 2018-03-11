@@ -1,0 +1,42 @@
+<ion-header>
+
+  <ion-navbar color="sky" no-border>
+    <ion-title>Perfil</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding class="perfil-content">
+
+  <ion-list no-lines>
+
+    <ion-item *ngIf="user.url == undefine">
+      <img src="./assets/images/user.png" class="iconUser" (click)="postPhoto()"/>
+    </ion-item>
+
+    <ion-item *ngIf="user.url != undefine">
+      <img src="{{user.url}}" (click)="postPhoto()">
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="text" value="" [(ngModel)]="user.nome" (input)="changerNome($event)" placeholder="Insira seu nome"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="text" value="" [(ngModel)]="user.nick" (input)="changerNick($event)"placeholder="Nick"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-row justify-content-start>
+        <ion-col col-6>
+          <button ion-button block outline (click)="doLogout()" color="blueDark">Reset Senha</button>
+        </ion-col>
+        <ion-col col-6>
+          <button ion-button block outline (click)="doLogout()" color="blueDark">Logout</button>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>

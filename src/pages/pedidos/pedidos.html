@@ -1,0 +1,78 @@
+<!--
+Class Pedidos contêm a lista de pedidos incluidos pelo usuário
+-->
+<ion-header>
+
+  <ion-navbar color="sky">
+    <ion-buttons left>
+      <button ion-button icon-only>
+        <!--<ion-icon name="contact"></ion-icon>-->
+        <ion-avatar>
+          <img src="{{user}}" class="user_img">
+        </ion-avatar>
+      </button>
+    </ion-buttons>
+    <ion-title>Meus Pedidos</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="pedidos-content" >
+
+  <ion-grid *ngIf="noItem" class="noItem">
+    <img src="./assets/images/SemPedido.png"/>
+    <h1>Sem Pedidos!</h1>
+  </ion-grid>
+
+  <ion-list reorder="{{isReorder}}" (ionItemReorder)="reorderItem($event)">
+    <ion-item *ngFor="let pedido of (pedidos | async)" (press)="menuOptions($event)">
+
+      <ion-card-header class="card-header">
+        <ion-icon name="md-key" color="danger" *ngIf="pedido.publico"></ion-icon>
+        {{pedido.titulo}}
+      </ion-card-header>
+
+      <ion-card-content (click)="doClickCard(pedido)">
+        <p>{{pedido.descricao.substring(0,45)}}...</p>
+      </ion-card-content>
+
+      <ion-row>
+        <ion-col>
+          <button ion-button icon-left clear small>
+          <ion-icon name="ios-heart-outline"></ion-icon>
+          <div>{{pedido.prays_count}} Orações</div>
+          </button>
+        </ion-col>
+        <!-- <ion-col>
+          <button ion-button icon-left clear small (click)="toggleComent(pedido.index)">
+          <ion-icon name="ios-text"></ion-icon>
+          <div>{{pedido.comentarios_count}} Comentários</div>
+          </button>
+        </ion-col> -->
+      </ion-row>
+
+      <!-- <ion-item #tc>
+        <ion-card *ngFor="let comentar of ( pedido.comentarios | toArray)">
+          <ion-card-content class="card_comen" text-wrap>
+            <p>{{comentar.comentario}}</p>
+          </ion-card-content>
+        </ion-card>
+        <ion-card-content>
+          <button ion-button icon-left round outline block color="darkgray" (click)="addComentario(pedido.$key)">
+            <ion-icon name="ios-add-outline"></ion-icon>
+            <div>Add Comentário</div>
+          </button>
+        </ion-card-content>
+      </ion-item> -->
+
+    </ion-item>
+  </ion-list>
+
+  <ion-fab bottom right>
+    <button ion-fab (click)="addPedido()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
+
+</ion-content>
