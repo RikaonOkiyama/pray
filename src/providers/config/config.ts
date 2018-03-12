@@ -45,8 +45,13 @@ export class ConfigProvider {
     }
 
     // E-mail user
-    if (user_email != undefined) {
+    if (user_email != undefined && user_email != null) {
       config.user_email = user_email;
+    }
+
+    // Senha user
+    if (user_senha != undefined && user_senha!= null) {
+      config.user_senha = user_senha;
     }
 
     localStorage.setItem(config_key, JSON.stringify(config));

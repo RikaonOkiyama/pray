@@ -99,7 +99,8 @@ export class LoginProvider {
               return this.signOutFirebase();
             });
         } else {
-          return this.signOutFirebase();
+           this.configProvider.setConfigDate(false, false, null, "");          
+          return this.afAuth.auth.signOut();//this.signOutFirebase();
         }
       }
     }

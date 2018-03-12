@@ -38,6 +38,12 @@ export class LoginPage {
     console.log('LoginPage-getEmailSaveLocal');
     let config = JSON.parse(this.configProvider.getConfigData());
     this.user.email = config.user_email;
+    this.loginKeep = config.loginKeep;
+
+    if (this.loginKeep){
+      this.user.password = config.user_senha;
+      this.doLogin();
+    }
 
   }
 
