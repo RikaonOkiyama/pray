@@ -11,6 +11,20 @@ page-oracoes {
         width: 38px;
     }
 
+    .borda {
+        border: 25px solid;
+        border-color:#404664;
+    }
+
+    .titulo {
+        //font-size: 12px;
+        font-family: "Taken" !important;
+        //text-align: center;
+        color: azure;
+        //height: 150px;
+        text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5);
+    }
+
     .oracoes_heard{
         color: darkgray;
         background: rgba(255, 255, 255, 0px);
@@ -18,12 +32,13 @@ page-oracoes {
 
     .grupo_heard{
         color: darkslategrey;
-        font-family: 'Segoe Script';
+        text-align: center;
         background: rgba(255, 255, 255, 0px);
     }
 
     .oracoes-content{
-        //background:  #6A5D4D;
+        font-family: Quicksand;
+        background-color: #f7f5ee;
     }
 
     .noItem{

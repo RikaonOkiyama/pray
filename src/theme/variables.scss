@@ -42,7 +42,9 @@ $colors: (
   blueDark:   #00688B,//#FF6347
   facebookcolor: #3B5998,
   redwhite: #ff2a49,
-  sky: #63c6ff
+  sky: #63c6ff,
+  pri: #f7f5ee,
+  full_white: #ffffff
 );
 
 
@@ -96,4 +98,18 @@ $colors: (
   font-style: normal;
   font-weight: 300;
   src: local("Taken by Vultures Alternates Demo"), url("#{$font-path}/Taken by Vultures Alternates Demo.otf");
+}
+
+@font-face {
+  font-family: "Quicksand_Light";
+  font-style: normal;
+  //font-weight: 300;
+  src: local("Quicksand_Light"), url("#{$font-path}/Quicksand_Light.otf");
+}
+
+@font-face {
+  font-family: "Quicksand";
+  font-style: normal;
+  //font-weight: 300;
+  src: local("Quicksand_Book"), url("#{$font-path}/Quicksand_Book.otf");
 }
